@@ -1,0 +1,23 @@
+<html ng-app="currencyApp">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <script src="currency.controller.js"></script>
+    <script src="currency.service.js"></script>
+</head>
+<body>
+  <img src="CurrencyFair_Logo.png"></img>
+    <div ng-controller="currencyCtrl as ctrl">
+      <div class="col-md-12 text-center">
+        <button class="btn btn-primary btn-lg" ng-click="ctrl.postfun()">Post Message</button>
+      </div>
+      </br>
+      <div class="col-md-12 text-center">
+        <button class="btn btn-primary btn-lg" ng-click="ctrl.viewfun()">View Message</button>
+      </div>
+    </div>
+</body>
+
+</html>
