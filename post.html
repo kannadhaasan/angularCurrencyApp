@@ -11,7 +11,7 @@
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
 	</head>
-		
+
 		<body>
 			<img src="CurrencyFair_Logo.png"></img>
 			<div ng-controller="currencyCtrl as ctrl">
@@ -33,17 +33,25 @@
 									<!-- Text input-->
 									<div class="form-group">
 										<label class="col-sm-2 control-label" for="textinput">Sell</label>
-										<div class="col-sm-10">
+										<div class="col-sm-7">
 											<input type="text" ng-model="ctrl.formData.sell" placeholder="Enter amount to sell" class="form-control">
 											</div>
+											<div class="col-sm-3">
+												<input type="text" ng-model="ctrl.formData.sell" placeholder="Enter amount to sell" class="form-control">
+												</div>
 										</div>
 
 										<!-- Text input-->
 										<div class="form-group">
 											<label class="col-sm-2 control-label" for="textinput">Buy</label>
-											<div class="col-sm-10">
+											<div class="col-sm-7">
 												<input type="text" ng-model="ctrl.formData.buy" placeholder="Enter Amount to buy" class="form-control">
+
 												</div>
+												<div class="col-sm-3">
+													<input type="text" ng-model="ctrl.formData.buy" placeholder="Enter Amount to buy" class="form-control">
+
+													</div>
 											</div>
 
 											<!-- Text input-->
