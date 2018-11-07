@@ -6,7 +6,7 @@
 		<script src="currency.controller.js"></script>
     <script src="jQuery.min.js"></script>
     <script src="bootstrap-formhelpers-countries.js"></script>
-    <script src="bootstrap-formhelpers.min.js"></script>
+
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
@@ -21,12 +21,13 @@
 							<fieldset>
 								<!-- Form Name -->
 								<legend>Post Message</legend>
-
+								<div class="alert alert-success" ng-if="ctrl.successMessage">{{ctrl.successMessage}}</div>
+      					<div class="alert alert-danger" ng-if="ctrl.errorMessage">{{ctrl.errorMessage}}</div>
 								<!-- Text input-->
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="textinput">UserID</label>
 									<div class="col-sm-10">
-										<input type="text" ng-model="ctrl.formData.id" placeholder="Enter User ID" class="form-control">
+										<input type="text" ng-model="ctrl.formData.userId" placeholder="Enter User ID" class="form-control">
 										</div>
 									</div>
 
@@ -34,11 +35,11 @@
 									<div class="form-group">
 										<label class="col-sm-2 control-label" for="textinput">Sell</label>
 										<div class="col-sm-7">
-											<input type="text" ng-model="ctrl.formData.sell" placeholder="Enter amount to sell" class="form-control">
+											<input type="number" ng-model="ctrl.formData.amountSell" placeholder="Enter amount to sell" class="form-control">
 											</div>
 											<div class="col-sm-3">
-												<select name="" placeholder="Sel CUR" class="form-control">
-													<option value="" disabled selected>CURRENCY</option>
+												<select ng-model="ctrl.formData.currencyFrom" class="form-control">
+														<option value="" disabled selected>CURRENCY</option>
 														<option value="USD">United States Dollars</option>
 														<option value="EUR">Euro</option>
 														<option value="GBP">United Kingdom Pounds</option>
@@ -126,12 +127,13 @@
 										<div class="form-group">
 											<label class="col-sm-2 control-label" for="textinput">Buy</label>
 											<div class="col-sm-7">
-												<input type="text" ng-model="ctrl.formData.buy" placeholder="Enter Amount to buy" class="form-control">
+												<input type="number" ng-model="ctrl.formData.amountBuy" placeholder="Enter Amount to buy" class="form-control">
 
 												</div>
 												<div class="col-sm-3">
-													<select name="" class="form-control">
-															<option value="USD" selected="selected">United States Dollars</option>
+													<select ng-model="ctrl.formData.currencyTo" class="form-control">
+															<option value="" disabled selected>CURRENCY</option>
+															<option value="USD">United States Dollars</option>
 															<option value="EUR">Euro</option>
 															<option value="GBP">United Kingdom Pounds</option>
 															<option value="DZD">Algeria Dinars</option>
@@ -219,17 +221,15 @@
 											<div class="form-group">
 												<label class="col-sm-2 control-label" for="textinput">Rate</label>
 												<div class="col-sm-10">
-													<input type="text" ng-model="ctrl.formData.rate" placeholder="" class="form-control">
+													<input type="number" ng-model="ctrl.formData.rate" placeholder="" class="form-control">
 													</div>
-													</div>
-
-
-
+											</div>
+											
 													<!-- Text input-->
 													<div class="form-group">
 														<label class="col-sm-2 control-label" for="textinput">Country</label>
                                 <div class="col-sm-10">
-                                  <select ng-model="ctrl.formData.country" class="form-control">
+                                  <select ng-model="ctrl.formData.originatingCountry" class="form-control">
 
                                     <option value="AF">Afghanistan</option>
                                     <option value="AX">Åland Islands</option>
