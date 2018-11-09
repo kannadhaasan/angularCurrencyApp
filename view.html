@@ -1,34 +1,76 @@
 </<!DOCTYPE html>
 <html lang="en" dir="ltr" ng-app="currencyApp">
-  <head>
-    <meta charset="utf-8">
-    <script src="angular.js"></script>
-		<script src="app.js"></script>
-		<script src="currency.service.js"></script>
-		<script src="currency.controller.js"></script>
-    <script src="jQuery.min.js"></script>
-    <script src="bootstrap-formhelpers-countries.js"></script>
-    <script src="bootstrap-formhelpers.min.js"></script>
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<head>
+		<meta charset="utf-8">
+			<script src="angular.js"></script>
+			<script src="app.js"></script>
+			<script src="currency.service.js"></script>
+			<script src="currency.controller.js"></script>
+			<script src="currency.service.js"></script>
 
-    <title></title>
-  </head>
-  <body>
-    <img src="CurrencyFair_Logo.png"></img>
-    <div ng-controller="currencyCtrl">
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-          <p class="h3">View Message</p>
-          <ul class='list-group'>
-            <li  class='list-group-item' ng-repeat="" ng-click="">
-                  <span></span>
-            </li>
-          </ul>
-        </div>
+			<script src="bootstrap-formhelpers.min.js"></script>
+			<script src="bootstrap.bundle.min.js"></script>
+			<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+				<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+				<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-      </div>
+				<style>
+					#postbutton {
+					position: absolute;
+					top: 30px;
+					right: 50px;
+					}
 
-    </div>
-  </body>
-</html>
+					p:hover {
+					background-color: lightblue;
+					}
+				</style>
+
+			</head>
+			<body>
+				<div ng-controller="currencyCtrl as ctrl">
+					<div class="row">
+						<img src="CurrencyFair_Logo.png"></img>
+						<button class="btn btn-primary btn-lg pull-right" id="postbutton" style="vertical-align: top; display: table-cell;" ng-click="ctrl.postfun()">Post Message</button>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3 col-md-offset-2 col-sm-10" id="box1">
+								<div class="panel panel-default">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											<h3 class="panel-title">Traders</h3>
+										</div>
+									</div>
+									<div class="panel-body">
+										<p class="h5" ng-repeat="message in ctrl.message1" ng-click="ctrl.selectMessage($index)"><a href="#" style="color:black;font-size: 16px">{{message.userId}}</a></p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-md-offset-2" id="box2">
+								<div class="panel panel-default">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											<p class="h4">Trader Transaction Details</p>
+										</div>
+									</div>
+									<div class="panel-body">
+										<div class="media">
+											<div class="media-body">
+												<div>
+													<h5 style="font-weight:bold;">Amount Selled: <span style="font-style:italic;font-weight:normal" >{{ctrl.selectedMessage.amountSell}} {{ctrl.selectedMessage.currencyFrom}} </span> </h5>
+													<h5 style="font-weight:bold;">Amount Bought: <span style="font-style:italic;font-weight:normal">{{ctrl.selectedMessage.amountBuy}} {{ctrl.selectedMessage.currencyTo}} </span> </h5>
+													<h5 style="font-weight:bold;">Rate: <span style="font-style:italic;font-weight:normal">{{ctrl.selectedMessage.rate}} </span> </h5>
+													<h5 style="font-weight:bold;">Time: <span style="font-style:italic;font-weight:normal">  {{ctrl.selectedMessage.timePlaced}} </span> </h5>
+													<h5 style="font-weight:bold;">Orginating Country: <span style="font-style:italic;font-weight:normal">  {{ctrl.selectedMessage.originatingCountry}} </span> </h5>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</body>
+		</html>

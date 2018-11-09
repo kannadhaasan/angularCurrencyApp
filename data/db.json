@@ -170,6 +170,44 @@
       "rate": 85234,
       "originatingCountry": "CK",
       "id": "PXkuu1a"
+    },
+    [
+      {
+        "currencyFrom": "CNY",
+        "currencyTo": "XAU",
+        "userId": "2342",
+        "amountSell": 3423,
+        "amountBuy": 45645,
+        "rate": 645,
+        "originatingCountry": "GL"
+      },
+      "7-NOV-2018 21:49:30"
+    ],
+    [
+      {
+        "currencyFrom": "CAD",
+        "currencyTo": "BGL",
+        "userId": "2342",
+        "amountSell": 3534,
+        "amountBuy": 34534,
+        "rate": 343,
+        "originatingCountry": "AZ"
+      },
+      "7-NOV-2018 21:50:30"
+    ],
+    {
+      "id": "ydOVmFC"
+    },
+    {
+      "currencyFrom": "BMD",
+      "currencyTo": "BEF",
+      "userId": "7483o3",
+      "amountSell": 8767,
+      "amountBuy": 98787,
+      "rate": 788,
+      "timePlaced": "2018-11-07T00:00:00.000Z",
+      "originatingCountry": "BD",
+      "id": "GDFZ7PY"
     }
   ]
 }
