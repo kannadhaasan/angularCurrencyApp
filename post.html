@@ -2,6 +2,7 @@
 	<head>
 		<script src="angular.js"></script>
 		<script src="app.js"></script>
+		<script src="angular-messages.js"></script>
 		<script src="currency.service.js"></script>
 		<script src="currency.controller.js"></script>
 		<script src="currency.service.js"></script>
@@ -36,30 +37,25 @@
 								<div class="alert alert-danger" ng-if="ctrl.errorMessage">{{ctrl.errorMessage}}</div>
 								<!-- Text input-->
 								<div class="form-group" show-errors>
-									<label class="col-sm-2 control-label" name="userid" for="textinput">UserID</label>
+									<label class="col-sm-2 control-label"  for="textinput">UserID</label>
 									<div class="col-sm-10">
-										<input type="text" ng-model="ctrl.formData.userId" placeholder="Enter User ID" class="form-control"
+										<input type="text" name="userid" ng-model="ctrl.formData.userId" placeholder="Enter User ID" class="form-control"
 												ng-minlength=5  ng-pattern="/^[a-zA-Z0-9]*$/" required>
 											<div ng-if="cform.userid.$dirty" ng-messages="cform.userid.$error">
 												<div class="error-message" ng-message="required">*This field is required</div>
 												<div class="error-message" ng-message="minlength">*Username too short</div>
-
+												<div class="error-message" ng-message="pattern">*Please enter atleast one character</div>
 											</div>
 											<div ng-if="cform.userid.$dirty" ng-messages="cform.userid">
 												<div class="valid-message" ng-message="$valid">valid!</div>
 											</div>
 										</div>
 									</div>
-
-									<!-- Text input-->
 									<div class="form-group">
-										<label class="col-sm-2 control-label" for="textinput">Sell</label>
-										<div class="col-sm-7">
-											<input type="number" ng-model="ctrl.formData.amountSell" placeholder="Enter amount to sell" class="form-control" required>
-											</div>
-											<div class="col-sm-3">
-												<select ng-model="ctrl.formData.currencyFrom" class="form-control">
-													<option value="" disabled selected>CURRENCY</option>
+											<label class="col-sm-2 control-label"  for="textinput">Sell Currency</label>
+											<div class="col-sm-10">
+												<select ng-model="ctrl.formData.currencyFrom" class="form-control" required>
+													<option value="" disabled selected>Select Currency</option>
 													<option value="USD">United States Dollars</option>
 													<option value="EUR">Euro</option>
 													<option value="GBP">United Kingdom Pounds</option>
@@ -141,18 +137,26 @@
 													<option value="XPT">Platinum Ounces</option>
 												</select>
 											</div>
+									</div>
+
+									<!-- Text input-->
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="textinput">Sell</label>
+										<div class="col-sm-10">
+											<input type="number" ng-model="ctrl.formData.amountSell" name="sellamount" placeholder="Enter amount to sell" class="form-control" required>
+												<div ng-if="cform.sellamount.$dirty" ng-messages="cform.sellamount.$error">
+	      									<div ng-message="required" style="color:red">Please enter sell amount</div>
+	    									</div>
+											</div>
+											<div class="col-sm-3">
+
+											</div>
 										</div>
-
-										<!-- Text input-->
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="textinput">Buy</label>
-											<div class="col-sm-7">
-												<input type="number" ng-model="ctrl.formData.amountBuy" placeholder="Enter Amount to buy" class="form-control">
-
-												</div>
-												<div class="col-sm-3">
+											<div class="form-group">
+												<label class="col-sm-2 control-label" for="textinput">Buy Amount</label>
+												<div class="col-sm-10">
 													<select ng-model="ctrl.formData.currencyTo" class="form-control">
-														<option value="" disabled selected>CURRENCY</option>
+														<option value="" disabled selected>Select Currency</option>
 														<option value="USD">United States Dollars</option>
 														<option value="EUR">Euro</option>
 														<option value="GBP">United Kingdom Pounds</option>
@@ -233,8 +237,20 @@
 														<option value="XPD">Palladium Ounces</option>
 														<option value="XPT">Platinum Ounces</option>
 													</select>
-
 												</div>
+
+											</div>
+
+										<!-- Text input-->
+										<div class="form-group">
+											<label class="col-sm-2 control-label" for="textinput">Buy</label>
+											<div class="col-sm-10">
+												<input type="number" name="buyamount" ng-model="ctrl.formData.amountBuy" placeholder="Enter Amount to buy" class="form-control" required>
+												<div ng-if="cform.buyamount.$dirty" ng-messages="cform.buyamount.$error">
+													<div ng-message="required" style="color:red">Please enter buy amount</div>
+												</div>
+												</div>
+
 											</div>
 											<!-- Text input-->
 											<div class="form-group">
@@ -255,7 +271,7 @@
 												<div class="form-group">
 													<label class="col-sm-2 control-label" for="textinput">Country</label>
 													<div class="col-sm-10">
-														<select ng-model="ctrl.formData.originatingCountry" class="form-control">
+														<select ng-model="ctrl.formData.originatingCountry" class="form-control" required>
 															<option value="" disabled selected>Select Country</option>
 															<option value="AF">Afghanistan</option>
 															<option value="AX">Åland Islands</option>
@@ -513,7 +529,7 @@
 											<div class="form-group">
 												<div class="col-sm-offset-2 col-sm-10">
 													<div class="pull-right">
-														<button type="submit" ng-click="ctrl.postToJson()" class="btn btn-primary" ng-disabled="form.$invalid">Save</button>
+														<button type="submit" ng-click="ctrl.postToJson()" class="btn btn-primary" ng-disabled="cform.$invalid">Save</button>
 													</div>
 												</div>
 											</div>

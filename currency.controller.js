@@ -1,6 +1,6 @@
 (function () {
 
-	var app = angular.module("currencyApp", []);
+	var app = angular.module("currencyApp", ['ngMessages']);
 
 	app.controller("currencyCtrl", currencyFn);
 
